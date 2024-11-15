@@ -46,6 +46,10 @@
 
     /* Styles for large screens */
     @media (min-width: 1024px) {
+        #head1{
+            width: 65.333333%;
+            border-radius: 4px;
+        }
         .navbar-container {
             display: flex;
             justify-content: center;
@@ -54,7 +58,6 @@
 
         nav {
             flex-direction: row;
-            justify-content: center;
         }
 
         nav a {
@@ -62,18 +65,37 @@
         }
     }
 
-    /* Styles for medium and smaller screens */
     @media (max-width: 1023px) {
+        #head1{
+            width: 65.333333%;
+            border-radius: 4px;
+        }
         nav {
             flex-direction: column;
-            align-items: center;
         }
 
         nav a {
             margin: 0.5rem 0;
         }
     }
+    @media (max-width: 767px) {
+      #head1 {
+        width: 90%; /* Adjust width as needed */
+        border-radius: 4px;
+      }
+      nav {
+        flex-direction: column;
+      }
 
+      nav a {
+        margin: 0.5rem 0;
+      }
+    }
+
+    @media (max-width: 85px) {
+      #head1 {
+        width: 100%; }
+    }
     .space-x-4> :not([hidden])~ :not([hidden]) {
         --tw-space-x-reverse: 0;
         margin-right: calc(1rem * var(--tw-space-x-reverse));
@@ -119,10 +141,9 @@
 
 <body>
     <!-- Header -->
-    <header class="w-7/12 ml-64 mt-8 rounded-xl" style="background-color:#5f39df;">
+    <header class="w-7/12 mt-8 rounded-xl" style="background-color:#5f39df;" id="head1">
         <div class="navbar-container mx-auto max-w-7xl px-2 sm:px-4 lg:divide-y lg:divide-teal-700 lg:px-8">
-            <nav class="hidden lg:flex lg:space-x-8 lg:py-2 ml-48" aria-label="Global" style="margin-left:4%;">
-                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <nav class="hidden lg:flex lg:space-x-8 lg:py-2 ml-43" aria-label="Global" style="margin-left:-3%;">
                 <a href="" class="inline-flex items-center rounded-md px-3 py-2 text-base font-medium text-white"
                     aria-current="page">Home</a>
                 <a href="#about"
@@ -138,24 +159,31 @@
                     style="background-color: #bfe520;">CONTACT
                     ME</a>
             </nav>
+    
+            <!-- Mobile menu toggle button -->
+            <button style="margin-left: -16%;" id="mobile-menu-button" class="lg:hidden block mx-auto mt-4 bg-cyan-500 text-white px-4 rounded">
+                <svg width="44px" height="44px" viewBox="-20 -20 60.00 60.00" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="#ffffff" fill-rule="evenodd" d="M19 4a1 1 0 01-1 1H2a1 1 0 010-2h16a1 1 0 011 1zm0 6a1 1 0 01-1 1H2a1 1 0 110-2h16a1 1 0 011 1zm-1 7a1 1 0 100-2H2a1 1 0 100 2h16z"></path> </g></svg>
+            </button>
+    
+            <!-- Mobile menu -->
+            <nav class="lg:hidden hidden" aria-label="Global" id="mobile-menu">
+                <div class="space-y-1 px-2 pb-3 pt-2">
+                    <a href="" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
+                        aria-current="page">Home</a>
+                    <a href="#about"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
+                    <a href="./protfolio.html"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Protfolio</a>
+                    <a href="#experence"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">EXPERENCE</a>
+                    <a href="#service"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">SERVICE</a>
+                    <a href="./contact.html"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">CONTACT ME</a>
+                </div>
+            </nav>
         </div>
-
-        <!-- Mobile menu, show/hide based on menu state. -->
-        <nav class="lg:hidden" aria-label="Global" id="mobile-menu">
-            <div class="space-y-1 px-2 pb-3 pt-2">
-                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
-                    aria-current="page">Dashboard</a>
-                <a href="#"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
-                <a href="#"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
-                <a href="#"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
-            </div>
-        </nav>
     </header>
-
     <!-- Header -->
 
     <!-- Welcome -->
@@ -212,40 +240,43 @@
                         </span>
                     </h2>
                     
-                <div class="mt-4 text-xl flex">
-                    <div class="info-1 animate__animated animate__fadeInLeft">
-                        <p class="text-purple-600 font-bold">Freelance : <span
-                                class="font-normal text-black">Available</span></p>
-                        <p class="text-purple-600 font-bold">Gender : <span class="font-normal text-black">Male</span>
-                        </p>
-                        <p class="text-purple-600 font-bold">Language : <span class="font-normal text-black">English &
-                                Bangla</span></p>
-                        <p class="text-purple-600 font-bold">Work : <span class="font-normal text-black">Video Editor,
-                                Motion Graphic Design</span></p>
+                    <div class="mt-4 text-xl flex info-section">
+                        <div class="info-1 animate__animated animate__fadeInLeft">
+                            <p class="text-purple-600 font-bold">Freelance : 
+                                <span class="font-normal text-black">Available</span>
+                            </p>
+                            <p class="text-purple-600 font-bold">Gender : 
+                                <span class="font-normal text-black">Male</span>
+                            </p>
+                            <p class="text-purple-600 font-bold">Language : 
+                                <span class="font-normal text-black">English & Bangla</span>
+                            </p>
+                            <p class="text-purple-600 font-bold">Work : 
+                                <span class="font-normal text-black">Video Editor, Motion Graphic Design</span>
+                            </p>
+                        </div>
+                        <div class="info-2 animate__animated animate__fadeInLeft">
+                            <p class="text-purple-600 font-bold">Email : 
+                                <span class="font-normal text-black">alrafikhandoker7@gmail.com</span>
+                            </p>
+                            <p class="text-purple-600 font-bold">Country : 
+                                <span class="font-normal text-black">Bangladesh</span>
+                            </p>
+                        </div>
                     </div>
-                    <div class="info-2 animate__animated animate__fadeInLeft">
-                        <p class="text-purple-600 font-bold">Email : <span
-                                class="font-normal text-black">alrafikhandoker7@gmail.com</span></p>
-                        <p class="text-purple-600 font-bold">Country : <span
-                                class="font-normal text-black">Bangladesh</span>
-                        </p>
+                    <div class="tools-header">
+                        <h3 class="text-xl font-bold text-center">Tools</h3>
+                        <div class="tools-icons">
+                            <img src="./img/premiere-pro.png" alt="Adobe Premiere Pro" class="h-16 zoomable">
+                            <img src="./img/after-effects.png" alt="Adobe After Effects" class="h-16 zoomable">
+                            <img src="./img/illustrator.png" alt="Adobe Illustrator" class="h-16 zoomable">
+                            <img src="./img/photoshop.png" alt="Adobe Photoshop" class="h-16 zoomable">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png" alt="DaVinci Resolve" class="h-16 zoomable">
+                            <img src="./img/premiere-pro.png" alt="Other Tool" class="h-16 zoomable">
+                        </div>
                     </div>
-                </div>
-                <div class="mt-6 ml-44 tools-header animate__animated animate__fadeInLeft">
-                    <h3 class="text-xl font-bold ml-40 mb-10">Tools</h3>
-                    <div class="flex space-x-4 mt-2 tools-icons animate__animated animate__fadeInLeft">
-                        <img src="./img/premiere-pro.png" alt="Adobe Premiere Pro" class="h-12 zoomable"
-                            style="width: auto;">
-                        <img src="./img/after-effects.png" alt="Adobe After Effects" class="h-12 zoomable"
-                            style="width: auto;">
-                        <img src="./img/illustrator.png" alt="Adobe Illustrator" class="h-12 zoomable"
-                            style="width: auto;">
-                        <img src="./img/photoshop.png" alt="Adobe Photoshop" class="h-12 zoomable" style="width: auto;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png"
-                            alt="DaVinci Resolve" class="h-12 zoomable" style="width: auto;">
-                        <img src="./img/premiere-pro.png" alt="Other Tool" class="h-12 zoomable" style="width: auto;">
-                    </div>
-                </div>
+                    
+                    
             </div>
         </div>
         <div class="ml-20">
@@ -273,6 +304,48 @@
         </div>
 
         <style>
+          .tools-icons {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    justify-content: center; /* Centers the items in the container */
+}
+
+.tools-icons img {
+    max-width: 80px; /* Set a maximum width for images */
+    margin: 10px; /* Add space around each image */
+    flex-basis: calc(50% - 20px); /* Ensure two images fit in one row with space between */
+}
+
+@media (max-width: 767px) {
+    .tools-icons {
+        justify-content: space-around; /* Ensure even spacing between two images in a row */
+    }
+
+    .tools-icons img {
+        flex-basis: calc(50% - 20px); /* Each image takes up half the row minus margin */
+    }
+}
+
+              .info-section {
+        flex-direction: row;
+                  }
+              
+                  .info-1, .info-2 {
+                      text-align: left;
+                  }
+              
+                  /* Media query for mobile devices */
+                  @media (max-width: 768px) {
+        .info-section {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .info-1, .info-2 {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+    }
             .card {
                 transition: all 0.3s ease-in-out;
                 background: linear-gradient(to right, initial, initial);
@@ -310,6 +383,7 @@
                     transform: translateY(-10px);
                 }
             }
+            
         </style>
     </div>
 
@@ -492,12 +566,27 @@
             <video src="./img/gif_2.mp4" autoplay loop muted style="display: block; width: 100%; height: auto;">
                 Your browser does not support the video tag.
             </video>
-            <button
+            <button id="clicBtn"
                 style="position: absolute; top: 73%; left: 75%; transform: translate(-50%, -50%); z-index: 1; background-color: #BFE520; color: black; padding: 0.5rem 1rem; border-radius: 0.25rem; border: none;">Click
                 Here</button>
         </div>
     </a>
+<style>
+    @media (max-width: 768px) {
+        #clicBtn{
+            height: 22%;
+            font-size: 13px;
+        }
+}
 
+/* Adjustments for screens ≤ 480px (mobile screens) */
+@media (max-width: 480px) {
+    #clicBtn{
+            height: 22%;
+            font-size: 13px;
+        }
+}
+</style>
 
 
     <!-- protfolio -->
@@ -515,6 +604,32 @@
                     <h3>Address - Gazipur, Dhaka, Bangladesh</h3>
                 </div>
             </div>
+<style>
+    .contact-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.contact-info div {
+    flex: 1;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 767px) {
+    .contact-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-info div {
+        width: 100%;
+        text-align: center; /* Optional: Center the text on mobile */
+        margin-bottom: 15px; /* Add some space between the sections */
+    }
+}
+
+</style>            
             <div class="social-media">
                 <p style="font-size: 20px; font-weight: 500;">Follow us</p>
                 <div>
@@ -605,24 +720,33 @@
 
 <script>
     document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('mouseenter', function () {
-            const paragraphs = card.querySelectorAll('p');
+  	card.addEventListener('mouseenter', function() {
+  		const paragraphs = card.querySelectorAll('p');
 
-            paragraphs.forEach(paragraph => {
-                const text = paragraph.innerText;
-                paragraph.innerHTML = wrapLetters(text);
-            });
+  		paragraphs.forEach(paragraph => {
+  			const text = paragraph.innerText;
+  			paragraph.innerHTML = wrapLetters(text);
+  		});
 
-            const spans = card.querySelectorAll('span');
-            spans.forEach((span, index) => {
-                setTimeout(() => {
-                    span.classList.add('jump');
-                }, index * 100); // Adjust the delay as needed
-            });
-        });
-    });
+  		const spans = card.querySelectorAll('span');
+  		spans.forEach((span, index) => {
+  			setTimeout(() => {
+  				span.classList.add('jump');
+  			}, index * 100); // Adjust the delay as needed
+  		});
+  	});
+  });
 
-    function wrapLetters(text) {
-        return text.split('').map(letter => `<span>${letter}</span>`).join('');
-    }
+  function wrapLetters(text) {
+  	return text.split('').map(letter => `<span>${letter}</span>`).join('');
+  }
+  document.getElementById('mobile-menu-button').addEventListener('click', function() {
+  	var mobileMenu = document.getElementById('mobile-menu');
+  	if (mobileMenu.classList.contains('hidden')) {
+  		mobileMenu.classList.remove('hidden');
+  	} else {
+  		mobileMenu.classList.add('hidden');
+  	}
+  });
+
 </script>
